@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart House - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Smart House</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero-section">
+    <div class="floating-icons">
+      <!-- Home icon -->
+      <svg class="floating-icon" style="top: 20%; left: 10%; animation-delay: 0s;" width="24" height="24"
+        viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
+      </svg>
+
+      <!-- Lightbulb icon -->
+      <svg class="floating-icon" style="top: 15%; left: 75%; animation-delay: 0.5s;" width="24" height="24"
+        viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12 2C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" />
+      </svg>
+
+      <!-- Temperature/Climate icon -->
+      <svg class="floating-icon" style="top: 45%; left: 85%; animation-delay: 1s;" width="24" height="24"
+        viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M15 13V5c0-1.66-1.34-3-3-3S9 3.34 9 5v8c-1.21.91-2 2.37-2 4 0 2.76 2.24 5 5 5s5-2.24 5-5c0-1.63-.79-3.09-2-4zm-4-8c0-.55.45-1 1-1s1 .45 1 1h-2z" />
+      </svg>
+
+      <!-- Security Camera icon -->
+      <svg class="floating-icon" style="top: 65%; left: 15%; animation-delay: 1.5s;" width="24" height="24"
+        viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+      </svg>
+
+      <!-- WiFi icon -->
+      <svg class="floating-icon" style="top: 30%; left: 30%; animation-delay: 2s;" width="24" height="24"
+        viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
+      </svg>
+
+      <!-- Smart Lock icon -->
+      <svg class="floating-icon" style="top: 75%; left: 60%; animation-delay: 2.5s;" width="24" height="24"
+        viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+      </svg>
+
+      <!-- Smart Speaker icon -->
+      <svg class="floating-icon" style="top: 40%; left: 70%; animation-delay: 3s;" width="24" height="24"
+        viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M17 2H7c-1.1 0-2 .9-2 2v16c0 1.1.9 1.99 2 1.99L17 22c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 2c1.1 0 2 .9 2 2s-.9 2-2 2c-1.11 0-2-.9-2-2s.89-2 2-2zm0 16c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+      </svg>
+
+      <!-- Smart TV icon -->
+      <svg class="floating-icon" style="top: 55%; left: 40%; animation-delay: 3.5s;" width="24" height="24"
+        viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z" />
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <h1>Welcome to Your Smart House</h1>
+      <p>Experience the ultimate in home automation and convenience. Control your world effortlessly!</p>
+      <button class="explore-btn">Explore Features</button>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="container my-5">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h2 class="mb-4">What is a Smart House?</h2>
+        <p class="AboutSM">A smart house is a cutting-edge living environment where various home devices and systems are
+          interconnected, allowing seamless automation, remote control, and intelligent decision-making. By integrating
+          advanced technologies like IoT (Internet of Things), artificial intelligence, and sensors, smart homes provide
+          unprecedented convenience, energy efficiency, and security.</p>
+        <p class="AboutSM">From adjusting temperature and lighting to managing security systems and home appliances,
+          smart houses transform the way we live by making our homes more responsive, efficient, and personalized.</p>
+      </div>
+      <div class="col-md-6">
+        <img
+          src="https://th.bing.com/th/id/R.617ed5ba7f8d58eb5bcf35b81dac4fb0?rik=aSmxj%2fprIXWArQ&riu=http%3a%2f%2fres.cloudinary.com%2fculturemap-com%2fimage%2fupload%2far_4%3a3%2cc_fill%2cg_faces%3acenter%2cw_1200%2fv1478540655%2fphotos%2f240123_original.jpg&ehk=RQ1eAcGCMbmgbx57TcfG2I4T6YbYwmKjpArC0w0hVjw%3d&risl=&pid=ImgRaw&r=0"
+          class="img-fluid rounded shadow" alt="Smart Home Technology">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="container">
+    <div class="grid">
+
+      <div class="grid">
+        <div class="feature-card">
+          <h3>Smart Lighting</h3>
+          <p>Illuminate your home with energy-efficient, customizable lighting solutions.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Automated Climate Control</h3>
+          <p>Adjust your home's temperature with precision and save energy.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Voice Assistance</h3>
+          <p>Command your smart devices with your voice. Hands-free convenience!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-section">
+      <div class="container">
+        <h2 class="text-center">Smart Home Gallery</h2>
+        <div class="grid">
+          <img src="https://i.pinimg.com/736x/41/40/47/414047d38f26d9de50a10d97ebea4e8d.jpg"
+            alt="Smart Home Entertainment System" class="gallery-image">
+          <img src="https://i.pinimg.com/736x/17/14/e3/1714e3e8c5d8494e3664d834d89e470a.jpg"
+            alt="Voice Assistant Smart Home Control" class="gallery-image">
+          <img src="https://i.pinimg.com/736x/cc/1f/aa/cc1faaf20ed04433db03e0b39d5e4ec8.jpg"
+            alt="Smart Home Lighting Control" class="gallery-image">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Stats Section with Images -->
+    <div class="stats-section py-5">
+      <div class="container text-center">
+        <h2 class="mb-4">Smart Home Statistics</h2>
+        <p class="mb-5">Our smart home solutions have made a significant impact. Here are some key statistics:</p>
+        <div class="row">
+          <!-- Stat 1 -->
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="https://th.bing.com/th/id/R.cf8723008ad1255f60d776966bebfb3f?rik=zt0djUOVwhJshQ&pid=ImgRaw&r=0"
+                class="card-img-top img-fluid" alt="Smart Homes">
+              <div class="card-body">
+                <h5 class="card-title">1,000+</h5>
+                <p class="card-text">Smart Homes Connected</p>
+              </div>
+            </div>
+          </div>
+          <!-- Stat 2 -->
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img src="https://as1.ftcdn.net/v2/jpg/04/92/22/88/1000_F_492228885_mV5eEpDpQBAo1nrALawCda6UqprKaZzP.jpg"
+                class="card-img-top img-fluid" alt="Energy Saved">
+              <div class="card-body">
+                <h5 class="card-title">20%</h5>
+                <p class="card-text">Energy Saved</p>
+              </div>
+            </div>
+          </div>
+          <!-- Stat 3 -->
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <img
+                src="https://cdn.masmovil.es/embed/b8bfd0c1e34c5cd9a776c1f7490581615389983/infrarrojos-movil-tv.jpg?imagick=1&size=750"
+                class="card-img-top img-fluid" alt="Devices Controlled">
+              <div class="card-body">
+                <h5 class="card-title">5,000+</h5>
+                <p class="card-text">Devices Controlled</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Visualization Section -->
+    <div class="container my-5">
+      <h2 class="text-center">Statistics Visualization</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <canvas id="energyChart"></canvas>
+        </div>
+        <div class="col-md-6">
+          <canvas id="deviceChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Energy Savings Chart
+      const energyCtx = document.getElementById('energyChart').getContext('2d');
+      const energyChart = new Chart(energyCtx, {
+        type: 'pie',
+        data: {
+          labels: ['Lighting', 'Heating', 'Cooling', 'Appliances'],
+          datasets: [{
+            label: 'Energy Savings',
+            data: [30, 25, 20, 25],
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Energy Savings by Category'
+            }
+          }
+        }
+      });
+
+      // Devices Controlled Chart
+      const deviceCtx = document.getElementById('deviceChart').getContext('2d');
+      const deviceChart = new Chart(deviceCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Lights', 'Thermostats', 'Cameras', 'Locks', 'Speakers'],
+          datasets: [{
+            label: 'Devices Controlled',
+            data: [1200, 800, 600, 400, 1000],
+            backgroundColor: '#36A2EB'
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Number of Devices Controlled'
+            }
+          }
+        }
+      });
+    </script>
+
+
+
+
+    <!-- Testimonials Section -->
+
+    <div class="container my-5">
+      <h2 class="text-center">What Our Users Say</h2>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- First Testimonial -->
+          <div class="carousel-item active">
+            <blockquote class="blockquote text-center">
+              <p>"The best investment I’ve made for my home!"</p>
+              <footer class="blockquote-footer">John Doe</footer>
+            </blockquote>
+          </div>
+
+          <!-- Second Testimonial -->
+          <div class="carousel-item">
+            <blockquote class="blockquote text-center">
+              <p>"Smart, efficient, and incredibly convenient."</p>
+              <footer class="blockquote-footer">Jane Smith</footer>
+            </blockquote>
+          </div>
+
+          <!-- Third Testimonial -->
+          <div class="carousel-item">
+            <blockquote class="blockquote text-center">
+              <p>"A game-changer for home automation!"</p>
+              <footer class="blockquote-footer">Alice Johnson</footer>
+            </blockquote>
+          </div>
+
+          <!-- Fourth Testimonial -->
+          <div class="carousel-item">
+            <blockquote class="blockquote text-center">
+              <p>"I can't imagine my life without it now."</p>
+              <footer class="blockquote-footer">Michael Brown</footer>
+            </blockquote>
+          </div>
+
+          <!-- Fifth Testimonial -->
+          <div class="carousel-item">
+            <blockquote class="blockquote text-center">
+              <p>"Highly recommend to anyone looking to upgrade their home."</p>
+              <footer class="blockquote-footer">Emily Davis</footer>
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3">
+      <p>&copy; 2024 Smart House. All rights reserved.</p>
+      <p>
+        <a href="https://instagram.com" class="text-light">Instagram</a>
+      </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

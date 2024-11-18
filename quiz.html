@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz: Smart Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="background-image: url('images/pavel.jpg');">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Smart House</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+          <li class="nav-item"><a class="nav-link active" href="quiz.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- MAIN CONTENT -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4" style="color: #f5f5f5; font-weight: bolder; margin-top: 80px;">SMART HOME: QUIZ</h2>
+    <h2 class="text-center mb-4" style="color: #f5f5f5; font-size: large;">20 Questions</h2>
+
+    <div id="quiz-container">
+      <!-- dynamically adding questions from script -->
+    </div>
+
+    <div class="text-center mt-4">
+      <button id="submit-btn" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay"></div>
+
+  <!-- Centered Result Window -->
+  <div id="result-container">
+    <h4>RESULT</h4>
+    <p id="score-text"></p>
+    <button class="btn btn-secondary" id="close-btn">Close</button>
+  </div>
+
+  <footer class="bg-dark text-light py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p>&copy; 2024 Smart House. All rights reserved.</p>
+                <p>
+                    <a href="https://instagram.com" class="text-light">Instagram</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+  <script>
+    // QUESTIONS ARRAY
+    const questions = [
+      { question: "What is a smart home hub?", answers: ["A device that connects and controls multiple smart home devices", "A type of home decoration", "A security camera", "A smart refrigerator"], correct: 0 },
+      { question: "Which communication protocol is commonly used in smart home devices?", answers: ["Bluetooth only", "Wi-Fi only", "Zigbee", "Ethernet cable"], correct: 2 },
+      { question: "What can a smart thermostat typically do?", answers: ["Cook food", "Adjust temperature remotely", "Wash dishes", "Play music"], correct: 1 },
+      { question: "Which voice assistant is most commonly used in smart home systems?", answers: ["Siri", "Google Assistant", "Alexa", "Cortana"], correct: 2 },
+      { question: "What is the primary benefit of smart lighting?", answers: ["Changing light colors", "Energy efficiency", "Making coffee", "Washing windows"], correct: 1 },
+      { question: "What does IoT stand for in smart home context?", answers: ["Internet of Things", "Internal of Technology", "Internet of Telephones", "Internal of Terminals"], correct: 0 },
+      { question: "Which device can help monitor home security?", answers: ["Smart refrigerator", "Smart doorbell", "Smart toaster", "Smart microwave"], correct: 1 },
+      { question: "What can smart plugs help you do?", answers: ["Cook meals", "Control electrical devices remotely", "Clean floors", "Water plants"], correct: 1 },
+      { question: "What is a key feature of smart speakers?", answers: ["Voice control", "Cooking capability", "Washing clothes", "Fixing electronics"], correct: 0 },
+      { question: "Which technology enables communication between smart home devices?", answers: ["Radio waves", "Bluetooth", "Infrared", "Cellular network"], correct: 1 },
+      { question: "What can smart locks do?", answers: ["Open doors automatically", "Control home temperature", "Play music", "Cook food"], correct: 0 },
+      { question: "Which sensor is common in smart home security systems?", answers: ["Temperature sensor", "Motion sensor", "Humidity sensor", "Pressure sensor"], correct: 1 },
+      { question: "What is a smart home ecosystem?", answers: ["A garden system", "A network of interconnected smart devices", "A type of home decoration", "A cooking system"], correct: 1 },
+      { question: "Which company is known for smart home products?", answers: ["Tesla", "Apple", "Samsung", "Microsoft"], correct: 2 },
+      { question: "What can smart cameras typically do?", answers: ["Cook meals", "Provide remote video monitoring", "Clean rooms", "Heat food"], correct: 1 },
+      { question: "What is end-to-end encryption in smart home devices?", answers: ["A type of device connection", "A security method protecting data", "A communication protocol", "A device manufacturing process"], correct: 1 },
+      { question: "Which device can help manage home energy consumption?", answers: ["Smart refrigerator", "Smart toaster", "Smart meter", "Smart microwave"], correct: 2 },
+      { question: "What is a smart home automation?", answers: ["Automatic cleaning", "Controlling devices without human intervention", "Cooking system", "Gardening technique"], correct: 1 },
+      { question: "What can smart irrigation systems do?", answers: ["Water plants automatically", "Cook food", "Clean windows", "Control home temperature"], correct: 0 },
+      { question: "Which communication standard is used by many smart home devices?", answers: ["5G", "4G", "Z-Wave", "3G"], correct: 2 }
+    ];
+
+    // Dynamic generation of questions
+    const quizContainer = document.getElementById('quiz-container');
+    questions.forEach((q, index) => {
+      const questionDiv = document.createElement('div');
+      questionDiv.className = 'question-container';
+
+      let optionsHTML = '';
+      q.answers.forEach((answer, i) => {
+        optionsHTML += `
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="question${index}" id="q${index}a${i}" value="${i}">
+            <label class="form-check-label" for="q${index}a${i}">${answer}</label>
+          </div>
+        `;
+      });
+
+      questionDiv.innerHTML = `
+        <h5>Question ${index + 1}: ${q.question}</h5>
+        ${optionsHTML}
+      `;
+
+      quizContainer.appendChild(questionDiv);
+    });
+
+    // Handle submission
+    document.getElementById('submit-btn').addEventListener('click', () => {
+      let score = 0;
+
+      // Check answers
+      questions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="question${index}"]:checked`);
+        if (selected && parseInt(selected.value) === q.correct) {
+          score++;
+        }
+      });
+
+      // Display result
+      document.getElementById('score-text').innerText = ` ${score}/${questions.length}`;
+      document.getElementById('result-container').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    });
+
+    // Handle close button
+    document.getElementById('close-btn').addEventListener('click', () => {
+      document.getElementById('result-container').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
